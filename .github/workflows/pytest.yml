@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: GitHub Action for pytest
         uses: cclauss/GitHub-Action-for-pytest@master
