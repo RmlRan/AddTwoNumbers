@@ -12,3 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+
+      - name: GitHub Action for pytest
+        uses: cclauss/GitHub-Action-for-pytest@master
+        with:
+          args: pytest -h
