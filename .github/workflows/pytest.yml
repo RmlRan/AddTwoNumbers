@@ -1,6 +1,9 @@
 name: Python Tests
 
-on: push
+on: 
+  push:
+    branches: 
+      - master
 
 jobs:
   run_python_tests:
