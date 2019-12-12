@@ -1,0 +1,5 @@
+name: workflow on Dev branch for push
+
+on:
+  push:
+    branches:
