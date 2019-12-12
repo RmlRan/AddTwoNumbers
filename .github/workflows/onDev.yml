@@ -1,4 +1,4 @@
-name: Workflow on Dev branch for push
+name: Workflow on Dev branch
 
 on: [push, pull_request]
 
