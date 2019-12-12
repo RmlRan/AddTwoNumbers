@@ -3,10 +3,16 @@ name: Workflow on Dev branch
 on: [push, pull_request]
 
 jobs:
-  build:
-    name: Build
+  workflow_info:
+    name: Information about the workflow run
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github) }}
     runs-on: [ubuntu-latest]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - name: Show Information
+        run: |
+          echo "This workflow run is triggered by ${{ github.event_name }} ."
+          echo "***********************************************************************************"
+          echo "$GITHUB_CONTEXT"
+          echo "***********************************************************************************"
     
