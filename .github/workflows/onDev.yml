@@ -1,4 +1,4 @@
-name: Workflow on Dev branch
+name: CI_Dev
 
 on: [push, pull_request]
 
