@@ -1,4 +1,4 @@
-name: Workflow on master branch
+name: CI_master
 
 on: [push, pull_request]
 
