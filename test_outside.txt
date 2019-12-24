@@ -4,3 +4,4 @@ Update test_outside.txt - 02
 Update test_outside.txt - 03
 Update test_outside.txt - 04
 Update test_outside.txt - 05
+Update test_outside.txt - 06
