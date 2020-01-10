@@ -39,4 +39,3 @@ jobs:
         run: |
           sudo -u postgres psql -d $POSTGRES_DB
           CREATE EXTENSION postgis;
-          \q
