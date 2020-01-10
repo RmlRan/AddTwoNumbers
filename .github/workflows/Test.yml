@@ -35,12 +35,9 @@ jobs:
           wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
           sudo apt-get update
           sudo apt-get -yq install libpq-dev postgresql-client-12 postgresql-12-postgis-3 postgresql-12-postgis-3-scripts
-      - name: Enable PostGIS
-        run: psql -d $POSTGRES_DB -c "CREATE EXTENSION postgis;"
-
-      - name: Check installed components for PostgreSQL
+      - name: Create a database and Enable PostGIS
         run: |
-          sudo apt-get update
-          sudo apt-get install aptitude
-          find /usr -name postgis.control
-          aptitude search postgis
+          sudo -u postgres psql -d $POSTGRES_DB
+          sudo -u postgres psql -d $POSTGRES_DB
+          CREATE EXTENSION postgis;
+          \q
