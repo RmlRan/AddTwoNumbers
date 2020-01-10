@@ -38,6 +38,5 @@ jobs:
       - name: Create a database and Enable PostGIS
         run: |
           sudo -u postgres psql -d $POSTGRES_DB
-          sudo -u postgres psql -d $POSTGRES_DB
           CREATE EXTENSION postgis;
           \q
