@@ -19,3 +19,18 @@ jobs:
         shell: bash
         run: |
           grep BINPRM_BUF_SIZE /usr/include/linux/binfmts.h
+
+      - name: Indicate interpreter
+        run: |
+          #!/home/runner/work/RaspberryMatic/RaspberryMatic/build-raspmatic_ova/build/recovery-system-1.7.1-2019.11.1/output/host/bin/python3
+          # EASY-INSTALL-ENTRY-SCRIPT: 'meson==0.52.0','console_scripts','meson'
+          __requires__ = 'meson==0.52.0'
+          import re
+          import sys
+          from pkg_resources import load_entry_point
+          
+          if __name__ == '__main__':
+              sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+              sys.exit(
+                  load_entry_point('meson==0.52.0', 'console_scripts', 'meson')()
+              )
