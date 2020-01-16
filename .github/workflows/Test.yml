@@ -22,5 +22,5 @@ jobs:
 
       - name: Indicate interpreter
         run: |
-          #!/././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././bin/bash
+          #!/home/runner/work/BrightRan/AddTwoNumbers/AddTwoNumbers/build-raspmatic_ova/build/recovery-system-1.7.1-2019.11.1/output/host/bin/bash
           echo Hola!
