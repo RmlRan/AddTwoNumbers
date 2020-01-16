@@ -9,3 +9,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Setup Python environment
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+
+      - name: Check shebang (#!) maximum line length
+        shell: bash
+        run: |
+          grep BINPRM_BUF_SIZE /usr/include/linux/binfmts.h
