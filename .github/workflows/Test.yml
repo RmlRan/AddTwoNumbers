@@ -21,6 +21,7 @@ jobs:
           grep BINPRM_BUF_SIZE /usr/include/linux/binfmts.h
 
       - name: Indicate interpreter
+        shell: python
         run: |
           #!/home/runner/work/RaspberryMatic/RaspberryMatic/build-raspmatic_ova/build/recovery-system-1.7.1-2019.11.1/output/host/bin/python3
           # EASY-INSTALL-ENTRY-SCRIPT: 'meson==0.52.0','console_scripts','meson'
