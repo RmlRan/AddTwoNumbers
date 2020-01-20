@@ -2,34 +2,46 @@ name: Test
 
 on: push
 
-env:
-  RUN_START: false
-
 jobs:
   job_one:
     name: Job One
     runs-on: ubuntu-latest
     steps:
-      - name: Run Job One
-        run: |
-          echo "Run Job One"
-          echo "::set-env name=RUN_START::true"
+      - name: Run steps of Job One
+        run: echo "Some steps of Job One"
+
+      - name: Create file 'RUN_JOB_THREE.TXT' and write 'true' into it
+        run: echo 'true' > RUN_JOB_THREE.TXT
+
+      - name: Upload file 'RUN_JOB_THREE.TXT' as an artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: pass_file
+          path: RUN_JOB_THREE.TXT
 
   job_two:
     needs: [job_one]
     name: Job Two
     runs-on: ubuntu-latest
     steps:
-      - name: Run Job Two
-        run: |
-          echo "Run Job Two"
+      - name: Run steps of Job Two
+        run: echo "Some steps of Job Two"
 
   job_three:
     needs: [job_one, job_two]
     name: Job Three
     runs-on: ubuntu-latest
     steps:
-      - name: Run Job Three
-        run: |
-          echo "Run Job Three"
-          echo $RUN_START
+
+      - name: Download file 'RUN_JOB_THREE.TXT' from artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: pass_file
+
+      - name: Read file 'RUN_JOB_THREE.TXT' and set output parameter
+        id: set_output
+        run: echo "::set-output name=RUN_JOB_THREE::$(<RUN_JOB_THREE.TXT)"
+
+      - name: Run steps of Job Three
+        if: steps.set_output.outputs.RUN_JOB_THREE == 'true'
+        run: echo "Some steps of Job Three"
