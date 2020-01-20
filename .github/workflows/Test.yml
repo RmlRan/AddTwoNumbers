@@ -13,7 +13,7 @@ jobs:
       - name: Run Job One
         run: |
           echo "Run Job One"
-          echo "::set-output name=RUN_START::true"
+          echo "::set-env name=RUN_START::true"
 
   job_two:
     needs: [job_one]
