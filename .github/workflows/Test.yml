@@ -29,6 +29,7 @@ jobs:
 
   job_three:
     needs: [job_one, job_two]
+    if: always()
     name: Job Three
     runs-on: ubuntu-latest
     steps:
