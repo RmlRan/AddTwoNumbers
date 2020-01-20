@@ -40,7 +40,7 @@ jobs:
 
       - name: Read file 'RUN_JOB_THREE.TXT' and set output parameter
         id: set_output
-        run: echo "::set-output name=RUN_JOB_THREE::$(<RUN_JOB_THREE.TXT)"
+        run: echo "::set-output name=RUN_JOB_THREE::$(<pass_file/RUN_JOB_THREE.TXT)"
 
       - name: Run steps of Job Three
         if: steps.set_output.outputs.RUN_JOB_THREE == 'true'
