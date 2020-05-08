@@ -13,6 +13,10 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      - name: Get name
+      - name: Get ref name
         shell: bash
-        run: echo "the name is ${GITHUB_REF##*/}"
+        run: echo "::set-env name=REF_NAME::${GITHUB_REF##*/}"
+
+      - name: show ref name
+        shell: pwsh
+        run: echo "The ref name is ${env:REF_NAME}"
