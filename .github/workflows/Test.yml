@@ -14,5 +14,5 @@ jobs:
 
       - name: Get name
         run: |
-          name=${GITHUB_REF##/*}
+          name=${GITHUB_REF##*/}
           echo $name
