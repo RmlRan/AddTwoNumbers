@@ -14,4 +14,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
       - name: Get name
-        run: echo "the name is ${env.GITHUB_REF##*/}"
+        run: |
+          $ref = ${env:GITHUB_REF}
+          echo "the name is ${ref##*/}"
