@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test commands in parallel
-        run: ./script.sh
+        run: sudo ./script.sh
