@@ -13,4 +13,4 @@ jobs:
       - name: Test commands in parallel
         run: |
           chmod +x ./script.sh
-          sudo ./script.sh
+          ./script.sh
