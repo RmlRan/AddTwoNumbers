@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  pull_request:
-    branches: [master]
-    types: [opened, closed]
+on: push
 
 jobs:
   test:
