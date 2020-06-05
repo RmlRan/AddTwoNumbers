@@ -1,23 +1,24 @@
 name: CI
 
-on: push
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, closed]
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Commands in parallel - Test01
-        run: |
-          chmod +x ./script.sh
-          ./script.sh
+#       - name: Commands in parallel - Test01
+#         run: |
+#           chmod +x ./script.sh
+#           ./script.sh
 
-      - name: Commands in parallel - Test02
-        run: |
-          echo "Time01 $(date +"%H:%M:%S")" &
-          (echo "Time02 $(date +"%H:%M:%S")"; sleep 10; echo "Time03 $(date +"%H:%M:%S")") &
-          echo "Time04 $(date +"%H:%M:%S")"
-          wait
+      - name: View GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
