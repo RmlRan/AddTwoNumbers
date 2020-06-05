@@ -18,7 +18,11 @@ jobs:
 #           chmod +x ./script.sh
 #           ./script.sh
 
-      - name: View GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: Test access secrets
+        run: |
+          branch=master
+          echo "branch = $branch"
+          secret_name="secrets.${branch^^}"
+          echo "secret_name = $secret_name"
+          secret_value=${{ $secret_name }}
+          echo "secret_value = $secret_value"
