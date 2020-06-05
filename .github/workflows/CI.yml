@@ -27,4 +27,4 @@ jobs:
           var01="var1"
           var02="var2"
           var_all="$var01_and_$var02"
-          echo ${!var_all}
+          echo "var1_and_var1 = ${!var_all}"
