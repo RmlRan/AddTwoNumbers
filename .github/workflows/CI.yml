@@ -23,7 +23,8 @@ jobs:
           secret_name="secrets.${branch^^}"
           echo "secret_name = $secret_name"
           
+          var1_and_var1="var1 and var2"
           var01="var1"
           var02="var2"
-          var1_and_var1="var1 and var2"
-          echo ${!${var01}_and_${var02}}
+          var_all="$var01_and_$var02"
+          echo ${!var_all}
