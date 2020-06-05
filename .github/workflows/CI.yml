@@ -23,5 +23,5 @@ jobs:
           secret_name="secrets.${branch^^}"
           echo "secret_name = $secret_name"
           
-          secret_value=${{ $(echo ${!secret_name}) }}
+          secret_value=${{ !secret_name }}
           echo "secret_value = $secret_value"
