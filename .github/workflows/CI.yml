@@ -25,3 +25,6 @@ jobs:
         run: |
           ls
           cat test.txt
+
+      - name: Test docker container action 02
+        uses: TestCustomActionsRML/DockerContainerAction02@master
