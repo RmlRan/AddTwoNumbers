@@ -15,5 +15,13 @@ jobs:
 #           chmod +x ./script.sh
 #           ./script.sh
 
+      - name: Check dir
+        run: echo $PWD
+
       - name: Test docker container action
         uses: TestCustomActionsRML/hello-world-docker-action@master
+
+      - name: Check file
+        run: |
+          ls
+          cat test.txt
