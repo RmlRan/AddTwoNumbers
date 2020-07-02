@@ -15,16 +15,5 @@ jobs:
 #           chmod +x ./script.sh
 #           ./script.sh
 
-      - name: Test access secrets
-        run: |
-          branch=master
-          echo "branch = $branch"
-          
-          secret_name="secrets.${branch^^}"
-          echo "secret_name = $secret_name"
-          
-          var1_and_var1="var1 and var2"
-          var01=var1
-          var02=var2
-          var_1_2=${var01}_and_${var02}
-          echo "var1_and_var1 = ${!var_1_2}"
+      - name: Test docker container action
+        uses: TestCustomActionsRML/hello-world-docker-action@master
