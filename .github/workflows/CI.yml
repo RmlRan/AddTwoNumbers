@@ -15,16 +15,7 @@ jobs:
 #           chmod +x ./script.sh
 #           ./script.sh
 
-      - name: Check dir
-        run: echo $PWD
-
-      - name: Test docker container action
-        uses: TestCustomActionsRML/hello-world-docker-action@master
-
-      - name: Check file
-        run: |
-          ls
-          cat test.txt
-
-      - name: Test docker container action 02
-        uses: TestCustomActionsRML/DockerContainerAction02@master
+      - name: view the github context
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
