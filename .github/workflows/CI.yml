@@ -1,6 +1,17 @@
 name: CI
 
-on: [push, create]
+on:
+  push:
+
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'The name of the manual job.'
+        required: true
+        default: 'manual_job'
+
+env:
+  GITHUB_CONTEXT_01: ${{ toJson(github) }}
 
 jobs:
   test:
@@ -19,3 +30,21 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+
+  manual_job:
+    name: Manual Job
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_CONTEXT_02: ${{ toJson(github) }}
+    steps:
+      - name: view the github context 01
+        run: echo "$GITHUB_CONTEXT_01"
+
+      - name: view the github context 02
+        run: echo "$GITHUB_CONTEXT_02"
+
+      - name: view the github context 03
+        run: echo "$GITHUB_CONTEXT_03"
+        env:
+          GITHUB_CONTEXT_03: ${{ toJson(github) }}
