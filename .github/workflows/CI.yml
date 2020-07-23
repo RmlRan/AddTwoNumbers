@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       job:
-#         description: 'The name of the manual job.'
-#         required: false
+        description: 'The name of the manual job.'
+        required: false
 #         default: 'manual_job'
 
 env:
