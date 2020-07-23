@@ -33,7 +33,9 @@ jobs:
 
   manual_job:
     name: Manual Job
-    if: ${{ github.event.inputs.job == github.job }}
+    if: |
+      ${{ github.event_name == 'workflow_dispatch' && 
+      (github.event.inputs.job == '' || github.event.inputs.job == 'manual_job') }}
     runs-on: ubuntu-latest
     env:
       GITHUB_CONTEXT_02: ${{ toJson(github) }}
