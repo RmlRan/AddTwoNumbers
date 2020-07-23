@@ -33,7 +33,7 @@ jobs:
 
   manual_job:
     name: Manual Job
-    if: ${{ github.event.inputs.job == '' || github.event.inputs.job == 'manual_job' }}
+#     if: ${{ github.event.inputs.job == '' || github.event.inputs.job == 'manual_job' }}
     runs-on: ubuntu-latest
     env:
       GITHUB_CONTEXT_02: ${{ toJson(github) }}
@@ -45,6 +45,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT_02"
 
       - name: view the github context 03
+        if: ${{ github.event.inputs.job == '' || github.event.inputs.job == github.job }}
         run: echo "$GITHUB_CONTEXT_03"
         env:
           GITHUB_CONTEXT_03: ${{ toJson(github) }}
