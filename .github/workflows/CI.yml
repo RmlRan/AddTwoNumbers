@@ -24,6 +24,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
       - name: remove labels
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'ci-check/vagrant-setup') }}
         uses: actions-ecosystem/action-remove-labels@v1
         with:
           github_token: ${{ secrets.github_token }}
