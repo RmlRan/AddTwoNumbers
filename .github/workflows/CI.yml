@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout - 1
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
 #       - name: Commands in parallel - Test01
 #         run: |
@@ -23,5 +23,17 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
+      - name: view refs
+        run: |
+          echo "====================================== pr ref ======================================"
+          echo "github.ref = ${{ github.ref }}"
+          echo "github.sha = ${{ github.sha }}"
+          echo "===================================== base ref ====================================="
+          echo "github.event.pull_request.base.ref = ${{ github.event.pull_request.base.ref }}"
+          echo "github.event.pull_request.base.sha = ${{ github.event.pull_request.base.sha }}"
+          echo "===================================== head ref ====================================="
+          echo "github.event.pull_request.head.ref = ${{ github.event.pull_request.head.ref }}"
+          echo "github.event.pull_request.head.sha = ${{ github.event.pull_request.head.sha }}"
+
       - name: Checkout code - 2
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
