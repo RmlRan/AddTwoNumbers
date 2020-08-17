@@ -1,6 +1,6 @@
 name: CI
 
-on: [workflow_dispatch, push]
+on: [workflow_dispatch, push, pull_request]
 
 jobs:
   test:
@@ -16,15 +16,6 @@ jobs:
         uses: actions/checkout@v1
         with:
           fetch-depth: 0
-
-      - name: view test.txt
-        run: cat test.txt
-
-      - name: view test02.txt
-        run: cat test02.txt
-
-      - name: view test03.txt
-        run: cat test03.txt
 
 #       - name: Commands in parallel - Test01
 #         run: |
