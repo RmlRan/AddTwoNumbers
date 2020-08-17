@@ -17,6 +17,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: sleep
+        run: |
+          echo "Start - $(date +"%H:%M:%S")"
+          sleep 95
+          echo "End - $(date +"%H:%M:%S")"
+
 #       - name: Commands in parallel - Test01
 #         run: |
 #           chmod +x ./script.sh
